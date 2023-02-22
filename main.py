@@ -8,12 +8,16 @@ from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 from tables import db, BlogPost, User, Comment
 from flask_gravatar import Gravatar
 from functools import wraps
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 gravatar = Gravatar(app)
+
 
 # CONNECT TO DB
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
@@ -23,6 +27,7 @@ db.init_app(app)
 # CONFIGURE LOGIN MANAGER
 login_manager = LoginManager()
 login_manager.init_app(app)
+
 
 # TEST COMMENT 3
 
