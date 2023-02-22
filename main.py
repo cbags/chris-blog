@@ -24,6 +24,7 @@ db.init_app(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+# TEST COMMENT 3
 
 @login_manager.user_loader
 def load_user(user_id):
