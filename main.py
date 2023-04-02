@@ -30,6 +30,7 @@ login_manager.init_app(app)
 
 
 # TEST COMMENT 3
+# TEST COMMENT 4
 
 @login_manager.user_loader
 def load_user(user_id):
